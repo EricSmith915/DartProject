@@ -10,5 +10,16 @@ import 'dart:core';
 
 class Board{
   final size;
-  Board(this.size);
+  var places;
+  Board(this.size){
+    places = List.generate(this.size, (i) => List(this.size), growable: false);
+    for(int i = 0; i < this.size; i++){
+      for(int j = 0; j < this.size; j++){
+        places[i][j] = 0;
+      }
+    }
+  }
+  update(move, actor){
+    places[move[0]][move[1]] = actor;
+  }
 }

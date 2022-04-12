@@ -10,19 +10,22 @@ import 'dart:io';
 
 class WebClient{
   accessWebService(String url) async {
-    print(0);
     var uri = Uri.parse(url);
-    print(1);
     var response = await http.get(uri);
-    print(2);
     var info = json.decode(response.body);
 
-    print(info['strategies']);
     return info;
   }
 
+  getNewGame(String url, int selection, options) async {
+    var strategy = options['strategies'][selection - 1];
+    strategy = strategy.toLowerCase();
+    url = url + "?strategy=" + strategy;
+    var uri = Uri.parse(url);
+    var response = await http.get(uri);
+    var info = json.decode(response.body);
 
-  createNewGame(strategy){
-    //implement
+    return info;
   }
+
 }

@@ -10,7 +10,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:core';
 
-void main(){
+void main() async{
+
   //Starts sequence for whole program
   var controller = new Controller();
   controller.start();

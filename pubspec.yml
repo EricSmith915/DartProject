@@ -1,7 +1,0 @@
-name: DartProject
-
-environment:
-  sdk: '>=2.10.0 <3.0.0'
-
-dependencies:
-  http: ^0.13.4
