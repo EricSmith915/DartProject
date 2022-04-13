@@ -1,17 +1,18 @@
-import 'Main.dart';
-import 'Controller.dart';
-import 'WebClient.dart';
-import 'ConsoleUI.dart';
+//Eric Smith
+//Programming Languages
+//Dart Project
+// 4/12/2022
 
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-import 'dart:io';
 import 'dart:core';
 
 class Board{
   final size;
   var places;
+
+  //Constructor
   Board(this.size){
+    //Generates a 2d list with all values set to 0. Size of the list is equal
+    //to the board size
     places = List.generate(this.size, (i) => List(this.size), growable: false);
     for(int i = 0; i < this.size; i++){
       for(int j = 0; j < this.size; j++){
@@ -19,7 +20,9 @@ class Board{
       }
     }
   }
+
+  //Sets a value of the board to the specified player and location
   update(move, actor){
-    places[move[0]][move[1]] = actor;
+    places[move[1]][move[0]] = actor;
   }
 }

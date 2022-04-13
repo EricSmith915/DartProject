@@ -1,14 +1,15 @@
-import 'Main.dart';
-import 'Controller.dart';
-import 'ConsoleUI.dart';
-import 'Board.dart';
+//Eric Smith
+//Programming Languages
+//Dart Project
+// 4/12/2022
 
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'dart:io';
 
 
 class WebClient{
+
+  //Accesses the web service and returns the json object.
   accessWebService(String url) async {
     var uri = Uri.parse(url);
     var response = await http.get(uri);
@@ -17,8 +18,9 @@ class WebClient{
     return info;
   }
 
+  //Creates a new game from the web server
   getNewGame(String url, int selection, options) async {
-    var strategy = options['strategies'][selection - 1];
+    var strategy = options['strategies'][selection];
     strategy = strategy.toLowerCase();
     url = url + "?strategy=" + strategy;
     var uri = Uri.parse(url);
